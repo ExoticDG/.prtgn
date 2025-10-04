@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<commands>
+
+    <prtgn>
+        <cmd>new</cmd>
+        <help>Create a new .prtgn file</help>
+        <usage>prtgn new &lt;filename&gt;</usage>
+        <example>prtgn new ram_cash</example>
+    </prtgn>
+
+    <prtgn>
+        <cmd>open</cmd>
+        <help>Open an existing .prtgn file</help>
+        <usage>prtgn open &lt;filename&gt;</usage>
+        <example>prtgn open ram_cash.prtgn</example>
+    </prtgn>
+
+</commands>
