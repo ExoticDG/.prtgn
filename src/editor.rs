@@ -1,4 +1,4 @@
-use crossterm::event::{DisableMouseCapture, EnableMouseCapture};
+use crossterm::event::{self, DisableMouseCapture, EnableMouseCapture};
 use crossterm::terminal::{
     disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen,
 };
@@ -15,6 +15,7 @@ use std::fs;
 use std::io;
 use std::io::{BufRead, Write};
 use std::path::PathBuf;
+use std::time::{Duration, Instant};
 use tui_textarea::{CursorMove, Input, Key, TextArea};
 
 macro_rules! error {
@@ -114,6 +115,11 @@ impl Buffer<'_> {
             TextArea::default() // File does not exist
         };
         textarea.set_line_number_style(Style::default().fg(Color::DarkGray));
+        let path = if path.is_absolute() {
+            path
+        } else {
+            env::current_dir()?.join(path)
+        };
         Ok(Self {
             textarea,
             path,
@@ -218,8 +224,8 @@ impl Editor<'_> {
                 f.render_widget(Paragraph::new(cursor).style(status_style), status_chunks[2]);
 
                 // Render message at bottom
-                let message = if let Some(message) = self.message.take() {
-                    Line::from(Span::raw(message))
+                let message = if let Some(message) = &self.message {
+                    Line::from(Span::raw(message.as_ref()))
                 } else if search_height > 0 {
                     Line::from(vec![
                         Span::raw("Press "),
@@ -254,59 +260,61 @@ impl Editor<'_> {
                 f.render_widget(Paragraph::new(message), chunks[3]);
             })?;
 
-            if search_height > 0 {
-                let textarea = &mut self.buffers[self.current].textarea;
-                match crossterm::event::read()?.into() {
-                    Input {
-                        key: Key::Char('g' | 'n'),
-                        ctrl: true,
-                        alt: false,
-                        ..
-                    }
-                    | Input { key: Key::Down, .. } => {
-                        if !textarea.search_forward(false) {
-                            self.search.set_error(Some("Pattern not found"));
-                        }
-                    }
-                    Input {
-                        key: Key::Char('g'),
-                        ctrl: false,
-                        alt: true,
-                        ..
-                    }
-                    | Input {
-                        key: Key::Char('p'),
-                        ctrl: true,
-                        alt: false,
-                        ..
-                    }
-                    | Input { key: Key::Up, .. } => {
-                        if !textarea.search_back(false) {
-                            self.search.set_error(Some("Pattern not found"));
-                        }
-                    }
-                    Input {
-                        key: Key::Enter, ..
-                    } => {
-                        if !textarea.search_forward(true) {
-                            self.message = Some("Pattern not found".into());
-                        }
-                        self.search.close();
-                        textarea.set_search_pattern("").unwrap();
-                    }
-                    Input { key: Key::Esc, .. } => {
-                        self.search.close();
-                        textarea.set_search_pattern("").unwrap();
-                    }
-                    input => {
-                        if let Some(query) = self.search.input(input) {
-                            let maybe_err = textarea.set_search_pattern(query).err();
-                            self.search.set_error(maybe_err);
-                        }
-                    }
-                }
-            } else {
-                match crossterm::event::read()?.into() {
+            // if search_height > 0 {
+            //     let textarea = &mut self.buffers[self.current].textarea;
+            //     match ratatui::crossterm::event::read()?.into() {
+            //         Input {
+            //             key: Key::Char('g' | 'n'),
+            //             ctrl: true,
+            //             alt: false,
+            //             ..
+            //         }
+            //         | Input { key: Key::Down, .. } => {
+            //             if !textarea.search_forward(false) {
+            //                 self.search.set_error(Some("Pattern not found"));
+            //             }
+            //         }
+            //         Input {
+            //             key: Key::Char('g'),
+            //             ctrl: false,
+            //             alt: true,
+            //             ..
+            //         }
+            //         | Input {
+            //             key: Key::Char('p'),
+            //             ctrl: true,
+            //             alt: false,
+            //             ..
+            //         }
+            //         | Input { key: Key::Up, .. } => {
+            //             if !textarea.search_backward(false) {
+            //                 self.search.set_error(Some("Pattern not found"));
+            //             }
+            //         }
+            //         Input {
+            //             key: Key::Enter, ..
+            //         } => {
+            //             if !textarea.search_forward(true) {
+            //                 self.message = Some("Pattern not found".into());
+            //             }
+            //             self.search.close();
+            //             textarea.set_search_pattern("").unwrap();
+            //         }
+            //         Input { key: Key::Esc, .. } => {
+            //             self.search.close();
+            //             textarea.set_search_pattern("").unwrap();
+            //         }
+            //         input => {
+            //             if let Some(query) = self.search.input(input) {
+            //                 let maybe_err = textarea.set_search_pattern(query).err();
+            //                 self.search.set_error(maybe_err);
+            //             }
+            //         }
+            //     }
+            // } else {
+                let input = ratatui::crossterm::event::read()?.into();
+                self.message = None;
+                match input {
                     Input {
                         key: Key::Char('q'),
                         ctrl: true,
@@ -338,10 +346,10 @@ impl Editor<'_> {
                     }
                     input => {
                         let buffer = &mut self.buffers[self.current];
-                        buffer.modified = buffer.textarea.input(input);
+                        buffer.modified |= buffer.textarea.input(input);
                     }
                 }
-            }
+            //}
         }
 
         Ok(())
@@ -361,6 +369,6 @@ impl Drop for Editor<'_> {
     }
 }
 
-fn main() -> io::Result<()> {
+pub fn editor() -> io::Result<()> {
     Editor::new(env::args_os().skip(1))?.run()
 }

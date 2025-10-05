@@ -1,24 +1,30 @@
-use color_eyre::Result;
-use crossterm::event::{self, Event};
-use ratatui::{DefaultTerminal, Frame};
+// mod editor;
+// use editor::editor;
 
-fn main() -> Result<()> {
-    color_eyre::install()?;
-    let terminal = ratatui::init();
-    let result = run(terminal);
-    ratatui::restore();
-    result
-}
+// fn main() {
+//     println!("Hello, world!");
 
-fn run(mut terminal: DefaultTerminal) -> Result<()> {
-    loop {
-        terminal.draw(render)?;
-        if matches!(event::read()?, Event::Key(_)) {
-            break Ok(());
+//     editor().unwrap();
+// }
+
+    use clap::Parser;
+
+    #[derive(Parser, Debug)]
+    #[command(author, version, about, long_about = None)]
+    struct Args {
+        /// Name of the person to greet
+        #[arg(short, long)]
+        name: String,
+
+        /// Number of times to greet
+        #[arg(short, long, default_value_t = 1)]
+        count: u8,
+    }
+
+    fn main() {
+        let args = Args::parse();
+
+        for _ in 0..args.count {
+            println!("Hello, {}!", args.name);
         }
     }
-}
-
-fn render(frame: &mut Frame) {
-    frame.render_widget("hello world", frame.area());
-}

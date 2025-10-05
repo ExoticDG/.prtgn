@@ -3,3 +3,15 @@ Welcome to .prtgn! The all new CLI file format for Protogens. Powered by Rust an
 We offer encrypted files only select programs have the ability to understand, so your RAM cash and USB serial is safe with us!
 
 Along with that we have a wonderful Protogen friendly CLI interface, and a built in translation for Human or other species's to understand.  
+
+Have a look at our wonderful command structure! Start out with 'prtgn' and then apply any of the following sub commands!
+
+    New
+
+            'prtgn new' followed by a filename will create a new file and open the editor for you to edit to your liking.
+        You don't even need to have the prtgn extension on the filename, it is automatically added by the program.
+
+    Open
+
+            'prtgn open' followed by a filename willa create a new file and open the editor for you to edit to your liking.
+        You don't even need to have the prtgn extension on the filename, it is automatically added by the program.
