@@ -4,6 +4,7 @@ use std::path::PathBuf;
 //mod prtgn_new;
 
 
+
 #[derive(Parser)]
 struct Cli {
     #[arg(long, default_value = ".")]
@@ -16,26 +17,22 @@ struct Cli {
 #[derive(Subcommand)]
 enum Commands {
     New {
-        #[arg(long)]
-        outdir: PathBuf,
+        new_filename: String,
     },
     Open {
-        #[arg(long)]
-        to: String,
+        open_filename: String,
     },
 }
 
 pub fn command() {
     let args = Cli::parse();
 
-    println!("root: {:?}", args.root);
-
     match &args.command {
-        Some(Commands::New { outdir }) => {
-            println!("outdir: {:?}", outdir);
+        Some(Commands::New { new_filename }) => {
+            println!("Create: {:?}", new_filename);
         }
-        Some(Commands::Open { to }) => {
-            println!("to: {}", to);
+        Some(Commands::Open { open_filename }) => {
+            println!("Open: {}", open_filename);
         }
         None => {
             println!("There was no subcommand given");
