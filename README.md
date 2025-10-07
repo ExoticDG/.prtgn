@@ -1,6 +1,5 @@
 # .prtgn
-A Protogen file extension! Shortanable to .prtgn
-
+A Protogen file extension written in Rust. 
 
 ## A few other protogen repositories 
 
