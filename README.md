@@ -2,7 +2,7 @@
 
 A Protogen file extension written in Rust. 
 
-![.prtgn logo](image-url)
+![.prtgn logo](https://github.com/ExoticDG/.prtgn/blob/71e6699c3ce09ec64a5feb2ce82113c5c2a69477/prtgn_logo.jpeg)
 
 ## A few other protogen repositories 
 
