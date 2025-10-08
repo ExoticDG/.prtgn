@@ -1,1 +1,0 @@
-// code for the 'open' sub-command

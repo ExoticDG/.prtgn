@@ -6,12 +6,8 @@ Along with that we have a wonderful Protogen friendly CLI interface, and a built
 
 Have a look at our wonderful command structure! Start out with 'prtgn' and then apply any of the following sub commands!
 
-    New
+    Init
 
-            'prtgn new' followed by a filename will create a new file and open the editor for you to edit to your liking.
-        You don't even need to have the prtgn extension on the filename, it is automatically added by the program.
+            'prtgn init' followed by a filename will create a new file and open the editor for you to edit to your liking.
+        ~~You don't even need to have the prtgn extension on the filename, it is automatically added by the program.~~ //NOT IMPLEMENTED YET
 
-    Open
-
-            'prtgn open' followed by a filename willa create a new file and open the editor for you to edit to your liking.
-        You don't even need to have the prtgn extension on the filename, it is automatically added by the program.

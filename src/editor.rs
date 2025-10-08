@@ -9,7 +9,7 @@ use ratatui::text::{Line, Span};
 use ratatui::widgets::{Block, Borders, Paragraph};
 use ratatui::Terminal;
 use std::borrow::Cow;
-use std::env;
+use std::{env, path};
 use std::fmt::Display;
 use std::fs;
 use std::io;
@@ -150,13 +150,11 @@ struct Editor<'a> {
 }
 
 impl Editor<'_> {
-    fn new<I>(paths: I) -> io::Result<Self>
-    where
-        I: Iterator,
-        I::Item: Into<PathBuf>,
+    fn new(filename: String) -> io::Result<Self>
     {
-        let buffers = paths
-            .map(|p| Buffer::new(p.into()))
+        let buffers = filename
+            .split_whitespace()
+            .map(|f| Buffer::new(f.into()))
             .collect::<io::Result<Vec<_>>>()?;
         if buffers.is_empty() {
             return error!("USAGE: cargo run --example editor FILE1 [FILE2...]");
@@ -251,8 +249,8 @@ impl Editor<'_> {
                         Span::raw(" to quit, "),
                         Span::styled("^S", Style::default().add_modifier(Modifier::BOLD)),
                         Span::raw(" to save, "),
-                        Span::styled("^G", Style::default().add_modifier(Modifier::BOLD)),
-                        Span::raw(" to search, "),
+                        // Span::styled("^G", Style::default().add_modifier(Modifier::BOLD)),
+                        // Span::raw(" to search, "),
                         Span::styled("^T", Style::default().add_modifier(Modifier::BOLD)),
                         Span::raw(" to switch buffer"),
                     ])
@@ -337,13 +335,13 @@ impl Editor<'_> {
                         self.buffers[self.current].save()?;
                         self.message = Some("Saved!".into());
                     }
-                    Input {
-                        key: Key::Char('g'),
-                        ctrl: true,
-                        ..
-                    } => {
-                        self.search.open();
-                    }
+                    // Input {
+                    //     key: Key::Char('g'),
+                    //     ctrl: true,
+                    //     ..
+                    // } => {
+                    //     self.search.open();
+                    //}
                     input => {
                         let buffer = &mut self.buffers[self.current];
                         buffer.modified |= buffer.textarea.input(input);
@@ -369,6 +367,6 @@ impl Drop for Editor<'_> {
     }
 }
 
-pub fn editor() -> io::Result<()> {
-    Editor::new(env::args_os().skip(1))?.run()
+pub fn editor(filename: String) -> io::Result<()> {
+    Editor::new(filename.into())?.run()
 }

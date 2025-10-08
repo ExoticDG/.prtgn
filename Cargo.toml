@@ -2,6 +2,15 @@
 name = "prtgn"
 version = "0.1.0"
 edition = "2024"
+documentation = "https://github.com/ExoticDG/.prtgn/wiki"
+readme = "README.md"
+authors = ["ExoticDG"]
+description = "A Protogen file extension written in Rust."
+license = "GNU GPLv3"
+license-file = "LICENSE"
+repository = "https://github.com/ExoticDG/.prtgn"
+keywords = ["protogen", "file extension", "text editor", "terminal ui", "tui", "crossterm", "ratatui", "tui-textarea"]
+categories = ["command-line-utilities", "text-editors", "terminal-applications", "file-formats"]
 
 [dependencies]
 crossterm = "0.29.0"
