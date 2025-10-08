@@ -17,6 +17,6 @@ A Protogen file extension written in Rust.
 - [x] Rataui for a CLI UI for file editing and all sorts of stuff -- https://ratatui.rs/tutorials/json-editor/ \\ https://ratatui.rs \\ https://github.com/rhysd/tui-textarea
 - [x] CLI command (prtgn) for doing things. Example, `prtgn new <filename>` or something like that would create a new file and open the file editing UI -- https://rust.code-maven.com/clap-subcommand \\ https://medium.com/coderhack-com/writing-a-cli-tool-in-rust-237d7e6417f6 \\ https://rust-cli.github.io/book/tutorial/index.html
 - [ ] Custom 'encryption', similar to that of Hexidecimal or Binary or something but not.
-- [ ] Instiation file that just uses cargo to install everyting to PATH and whatnot. Cargo works on Linux and Windows.
+- [ ] Instiation file that just uses cargo to install everyting to PATH and whatnot. Cargo works on Linux and Windows. That might meed to install Rust as well though. so maybe just give in and try to find something that will add the thing to PATH.
 
 
