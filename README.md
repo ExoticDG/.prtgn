@@ -22,7 +22,7 @@ A Protogen file extension written in Rust.
 
 ## For Thoust dev's
 
-Debian (dev) install package : [Cargo-deb](https://crates.io/crates/cargo-deb)
+Debian (deb) install package : [Cargo-deb](https://crates.io/crates/cargo-deb)
 
 Fedora (rpm) install package : [Cargo-rmp](https://crates.io/crates/cargo-rpm)
 
