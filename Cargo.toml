@@ -18,3 +18,12 @@ ratatui = { version = "0.29.0", features = ["all-widgets"] }
 tui-textarea = "0.7.0"
 clap = { version = "4.5.48", features = ["derive"] }
 anyhow = "1.0.100"
+
+[package.metadata.rpm]
+package = "prtgn"
+
+[package.metadata.rpm.cargo]
+buildflags = ["--release"]
+
+[package.metadata.rpm.targets]
+prtgn = { path = "/usr/bin/prtgn" }

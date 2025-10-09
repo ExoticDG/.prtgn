@@ -27,6 +27,3 @@ Debian (deb) install package : [Cargo-deb](https://crates.io/crates/cargo-deb)
 Fedora (rpm) install package : [Cargo-rmp](https://crates.io/crates/cargo-rpm)
 
 Microsoft Windows install package : [Cargo-wix](https://crates.io/crates/cargo-wix)
-
-
-
