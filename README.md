@@ -20,3 +20,13 @@ A Protogen file extension written in Rust.
 - [ ] Instiation file that just uses cargo to install everyting to PATH and whatnot. Cargo works on Linux and Windows. That might meed to install Rust as well though. so maybe just give in and try to find something that will add the thing to PATH.
 
 
+## For Thoust dev's
+
+Debian (dev) install package : [Cargo-deb](https://crates.io/crates/cargo-deb)
+
+Fedora (rpm) install package : [Cargo-rmp](https://crates.io/crates/cargo-rpm)
+
+Microsoft Windows install package : [Cargo-wix](https://crates.io/crates/cargo-wix)
+
+
+
