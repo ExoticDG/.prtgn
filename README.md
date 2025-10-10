@@ -4,6 +4,22 @@ A Protogen file extension written in Rust.
 
 ![.prtgn logo](https://github.com/ExoticDG/.prtgn/blob/71e6699c3ce09ec64a5feb2ce82113c5c2a69477/prtgn_logo.jpeg)
 
+    .prtgn, a protogen inspired file extention writen in Rust.
+    Copyright (C) 2025  ExoticDG
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
 ## A few other protogen repositories 
 
 [Proto-OS](https://github.com/dimitrivlachos/Proto-OS), "An operating system for a Protogen head which utilises computer vision and machine learning to replicate the user's facial expressions and eye position onto the exterior displays of the character head. Made for an RPI4." -- [dimitrivlachos](https://github.com/dimitrivlachos)
@@ -24,6 +40,6 @@ A Protogen file extension written in Rust.
 
 Debian (deb) install package : [Cargo-deb](https://crates.io/crates/cargo-deb)
 
-Fedora (rpm) install package : [Cargo-rmp](https://crates.io/crates/cargo-rpm)
+Fedora (rpm) install package : ~~[Cargo-rmp](https://crates.io/crates/cargo-rpm)~~
 
 Microsoft Windows install package : [Cargo-wix](https://crates.io/crates/cargo-wix)
