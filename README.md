@@ -22,6 +22,25 @@ A Protogen file extension written in Rust.
 >You should have received a copy of the GNU General Public License
 >along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+## What we have to offer
+
+Welcome to .prtgn! The all new CLI file format for Protogens. Powered by Rust and Ratatui!
+
+We offer encrypted files only select programs have the ability to understand, so your RAM cash and USB serial is safe with us!
+
+> [!CAUTION]
+> PRTGN is NOT ment as a file type for critical information and therefor the security is treated as such.
+> We will take security issues and treat them as problems, though ultimetly PRTGN shouldnt be relied on for security. 
+>
+> PRTGN is NOT at falt for any information that gets seen through the use of our files
+
+Along with that we have a wonderful Protogen friendly CLI interface, and a built in translation for Human or other species's to understand.  
+
+Have a look at our wonderful command structure! Start out with 'prtgn' and then apply any of the following sub commands!
+
+>[!TIP]
+>Check out out [wiki](https://github.com/ExoticDG/.prtgn/wiki) for the diffrent commands!
+
 ## A few other protogen repositories 
 
 [Proto-OS](https://github.com/dimitrivlachos/Proto-OS), "An operating system for a Protogen head which utilises computer vision and machine learning to replicate the user's facial expressions and eye position onto the exterior displays of the character head. Made for an RPI4." -- [dimitrivlachos](https://github.com/dimitrivlachos)
