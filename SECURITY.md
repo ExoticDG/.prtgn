@@ -7,4 +7,4 @@ Either way, users should try to use the newest verstion of PRTGN to get the late
 
 ## Reporting a Vulnerability
 
-Reporting a valnribility can be done through the security tab if avalible, if not an issue should be oppend that contains what the valnribility is and where it is located within the codebase. 
+Reporting a valnribility can be done through the security tab if avalible. If not, an issue should be oppend that contains what the vulnerability is and where it is located within the codebase. 
