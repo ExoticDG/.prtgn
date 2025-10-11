@@ -6,7 +6,7 @@ A Protogen file extension written in Rust.
 
 > [!CAUTION]
 > 
->.prtgn, a protogen inspired file extention writen in Rust.
+>.prtgn, a protogen inspired file extension written in Rust.
 >Copyright (C) 2025  ExoticDG
 >
 >This program is free software: you can redistribute it and/or modify
@@ -29,21 +29,21 @@ Welcome to .prtgn! The all new CLI file format for Protogens. Powered by Rust an
 We offer encrypted files only select programs have the ability to understand, so your RAM cash and USB serial is safe with us!
 
 > [!CAUTION]
-> PRTGN is NOT ment as a file type for critical information and therefor the security is treated as such.
-> We will take security issues and treat them as problems, though ultimetly PRTGN shouldnt be relied on for security. 
+> PRTGN is NOT meant as a file type for critical information and therefor the security is treated as such.
+> We will take security issues and treat them as problems, though ultimately PRTGN shouldn't be relied on for security. 
 >
-> PRTGN is NOT at falt for any information that gets seen through the use of our files
+> PRTGN is NOT at fault for any information that gets seen through the use of our files
 
 Along with that we have a wonderful Protogen friendly CLI interface, and a built in translation for Human or other species's to understand.  
 
 Have a look at our wonderful command structure! Start out with 'prtgn' and then apply any of the following sub commands!
 
 >[!TIP]
->Check out out [wiki](https://github.com/ExoticDG/.prtgn/wiki) for the diffrent commands!
+>Check out out [wiki](https://github.com/ExoticDG/.prtgn/wiki) for the different commands!
 
 ## A few other protogen repositories 
 
-[Proto-OS](https://github.com/dimitrivlachos/Proto-OS), "An operating system for a Protogen head which utilises computer vision and machine learning to replicate the user's facial expressions and eye position onto the exterior displays of the character head. Made for an RPI4." -- [dimitrivlachos](https://github.com/dimitrivlachos)
+[Proto-OS](https://github.com/dimitrivlachos/Proto-OS), "An operating system for a Protogen head which utilizes computer vision and machine learning to replicate the user's facial expressions and eye position onto the exterior displays of the character head. Made for an RPI4." -- [dimitrivlachos](https://github.com/dimitrivlachos)
 
 [Proto-Ear-Twitch](https://github.com/stef1949/Proto-Ear-Twitch), "Code for controlling protogen ears" -- [stef1949](https://github.com/stef1949)
 
@@ -53,8 +53,8 @@ Have a look at our wonderful command structure! Start out with 'prtgn' and then 
 
 - [x] Rataui for a CLI UI for file editing and all sorts of stuff -- https://ratatui.rs/tutorials/json-editor/ \\ https://ratatui.rs \\ https://github.com/rhysd/tui-textarea
 - [x] CLI command (prtgn) for doing things. Example, `prtgn new <filename>` or something like that would create a new file and open the file editing UI -- https://rust.code-maven.com/clap-subcommand \\ https://medium.com/coderhack-com/writing-a-cli-tool-in-rust-237d7e6417f6 \\ https://rust-cli.github.io/book/tutorial/index.html
-- [ ] Custom 'encryption', similar to that of Hexidecimal or Binary or something but not.
-- [ ] Instiation file that just uses cargo to install everyting to PATH and whatnot. Cargo works on Linux and Windows. That might meed to install Rust as well though. so maybe just give in and try to find something that will add the thing to PATH.
+- [ ] Custom 'encryption', similar to that of Hexadecimal or Binary or something but not.
+- [ ] Installation file that just uses cargo to install everything to PATH and whatnot. Cargo works on Linux and Windows. That might meed to install Rust as well though. so maybe just give in and try to find something that will add the thing to PATH.
 
 
 ## For Thoust dev's
