@@ -26,7 +26,7 @@ A Protogen file extension written in Rust.
 
 Welcome to .prtgn! The all new CLI file format for Protogens. Powered by Rust and Ratatui!
 
-We offer encrypted files only select programs have the ability to understand, so your RAM cash and USB serial is safe with us!
+We offer encrypted files only select programs have the ability to understand, so your RAM cash and USB serial is safe with us! **|| NOT IMPLEMENTED YET**
 
 > [!CAUTION]
 > PRTGN is NOT meant as a file type for critical information and therefor the security is treated as such.
