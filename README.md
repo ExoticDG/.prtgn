@@ -61,6 +61,6 @@ Have a look at our wonderful command structure! Start out with 'prtgn' and then 
 
 Debian (deb) install package : [Cargo-deb](https://crates.io/crates/cargo-deb)
 
-Fedora (rpm) install package : ~~[Cargo-rmp](https://crates.io/crates/cargo-rpm)~~
+Fedora (rpm) install package : ~~[Cargo-rmp](https://crates.io/crates/cargo-rpm)~~ ~~[Cargo-generate-rpm](https://crates.io/crates/cargo-generate-rpm)~~ | I was unable to get either of these to work.
 
 Microsoft Windows install package : [Cargo-wix](https://crates.io/crates/cargo-wix)
