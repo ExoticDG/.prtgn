@@ -57,6 +57,7 @@ Have a look at our wonderful command structure! Start out with 'prtgn' and then 
 - [ ] Fedora / Rocky / RHL Support
 - [ ] ARM support
 - [ ] More than text in the files. I.E. Makeing it able to do more stuff. Maybe images or a wrapper for Rust or something.
+- [ ] Automaticaly adding .prtgn to a filename in the init command
 
 
 ## For Thoust dev's
