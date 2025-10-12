@@ -58,7 +58,7 @@ Have a look at our wonderful command structure! Start out with 'prtgn' and then 
 - [ ] ARM support
 - [ ] More than text in the files. I.E. Makeing it able to do more stuff. Maybe images or a wrapper for Rust or something.
 - [ ] Automaticaly adding .prtgn to a filename in the init command
-
+- [ ] Bentchmark/test sub command \\ usage stats and whatnot \\ https://github.com/sharkdp/hyperfine
 
 ## For Thoust dev's
 
