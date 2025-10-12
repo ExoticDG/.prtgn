@@ -55,6 +55,8 @@ Have a look at our wonderful command structure! Start out with 'prtgn' and then 
 - [x] CLI command (prtgn) for doing things. Example, `prtgn new <filename>` or something like that would create a new file and open the file editing UI -- https://rust.code-maven.com/clap-subcommand \\ https://medium.com/coderhack-com/writing-a-cli-tool-in-rust-237d7e6417f6 \\ https://rust-cli.github.io/book/tutorial/index.html
 - [ ] Custom 'encryption', similar to that of Hexadecimal or Binary or something but not.
 - [ ] Fedora / Rocky / RHL Support
+- [ ] ARM support
+- [ ] More than text in the files. I.E. Makeing it able to do more stuff. Maybe images or a wrapper for Rust or something.
 
 
 ## For Thoust dev's
