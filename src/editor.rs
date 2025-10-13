@@ -18,6 +18,9 @@ use std::path::PathBuf;
 use std::time::{Duration, Instant};
 use tui_textarea::{CursorMove, Input, Key, TextArea};
 
+mod obscurity;
+use obscurity::{obscure};
+
 macro_rules! error {
     ($fmt: expr $(, $args:tt)*) => {{
         Err(io::Error::new(io::ErrorKind::Other, format!($fmt $(, $args)*)))
@@ -332,6 +335,15 @@ impl Editor<'_> {
                         ctrl: true,
                         ..
                     } => {
+                        // Obscure the text before saving
+                        {
+                            let buffer = &mut self.buffers[self.current];
+                            let prtgn_text = buffer.textarea.lines().join("\n");
+                            let obscured = obscure(prtgn_text);
+                            // Replace buffer content with obscured text
+                            buffer.textarea = TextArea::default();
+                            buffer.textarea.insert_str(&obscured);
+                        }
                         self.buffers[self.current].save()?;
                         self.message = Some("Saved!".into());
                     }
