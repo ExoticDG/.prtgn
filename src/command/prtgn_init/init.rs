@@ -1,8 +1,15 @@
+
 // code for the 'new' sub-command
 use crate::editor;
 
-pub fn new_file(filename: String) {
+pub fn init(filename: String) {
     println!("Creating a new file...");
 
-    editor::editor(filename);
+    let mut filename_prt = filename;
+
+    if !filename_prt.ends_with(".prtgn") {
+       filename_prt.push_str(".prtgn");
+    }
+
+    editor::editor(filename_prt);
 }

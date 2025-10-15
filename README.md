@@ -26,7 +26,7 @@ A Protogen file extension written in Rust.
 
 Welcome to .prtgn! The all new CLI file format for Protogens. Powered by Rust and Ratatui!
 
-We offer 'secure' files only select programs have the ability to understand, so your RAM cash and USB serial is safe with us! **|| NOT FULLY IMPLEMENTED YET**
+We offer 'secure' files only select programs have the ability to understand, so your RAM cash and USB serial is safe with us!
 
 > [!CAUTION]
 > **PRTGN IS A SECURITY THROUGH OBSCURITY APPLICATION**
@@ -57,12 +57,12 @@ Have a look at our wonderful command structure! Start out with 'prtgn' and then 
 
 - [x] Rataui for a CLI UI for file editing and all sorts of stuff -- https://ratatui.rs/tutorials/json-editor/ \\ https://ratatui.rs \\ https://github.com/rhysd/tui-textarea
 - [x] CLI command (prtgn) for doing things. Example, `prtgn new <filename>` or something like that would create a new file and open the file editing UI -- https://rust.code-maven.com/clap-subcommand \\ https://medium.com/coderhack-com/writing-a-cli-tool-in-rust-237d7e6417f6 \\ https://rust-cli.github.io/book/tutorial/index.html
-- [ ] Custom 'encryption', similar to that of Hexadecimal or Binary or something but not.
+- [x] 'Security' Through Obscurity
 - [ ] Fedora / Rocky / RHL Support
 - [ ] ARM support
-- [ ] More than text in the files. I.E. Makeing it able to do more stuff. Maybe images or a wrapper for Rust or something.
-- [ ] Automaticaly adding .prtgn to a filename in the init command
-- [ ] Bentchmark/test sub command \\ usage stats and whatnot \\ https://github.com/sharkdp/hyperfine
+- [ ] More than text in the files. I.E. Making it able to do more stuff. Maybe images or a wrapper for Rust or something.
+- [x] Automatically adding .prtgn to a filename in the init command
+- [ ] Benchmark/test sub command \\ usage stats and whatnot \\ https://github.com/sharkdp/hyperfine
 
 ## For Thoust dev's
 

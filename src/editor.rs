@@ -12,14 +12,13 @@ use std::borrow::Cow;
 use std::{env, path};
 use std::fmt::Display;
 use std::fs;
-use std::io;
-use std::io::{BufRead, Write};
+use std::io::{self, Write};
 use std::path::PathBuf;
 use std::time::{Duration, Instant};
 use tui_textarea::{CursorMove, Input, Key, TextArea};
 
 mod obscurity;
-use obscurity::{obscure};
+use obscurity::{obscure, decrypt};
 
 macro_rules! error {
     ($fmt: expr $(, $args:tt)*) => {{
@@ -104,9 +103,10 @@ impl Buffer<'_> {
     fn new(path: PathBuf) -> io::Result<Self> {
         let mut textarea = if let Ok(md) = path.metadata() {
             if md.is_file() {
-                let mut textarea: TextArea = io::BufReader::new(fs::File::open(&path)?)
-                    .lines()
-                    .collect::<io::Result<_>>()?;
+                let content = fs::read_to_string(&path)?;
+                let decrypted_content = decrypt(&content);
+                let mut textarea: TextArea = decrypted_content.lines().map(String::from).collect();
+
                 if textarea.lines().iter().any(|l| l.starts_with('\t')) {
                     textarea.set_hard_tab_indent(true);
                 }
@@ -129,19 +129,6 @@ impl Buffer<'_> {
             modified: false,
         })
     }
-
-    fn save(&mut self) -> io::Result<()> {
-        if !self.modified {
-            return Ok(());
-        }
-        let mut f = io::BufWriter::new(fs::File::create(&self.path)?);
-        for line in self.textarea.lines() {
-            f.write_all(line.as_bytes())?;
-            f.write_all(b"\n")?;
-        }
-        self.modified = false;
-        Ok(())
-    }
 }
 
 struct Editor<'a> {
@@ -160,7 +147,7 @@ impl Editor<'_> {
             .map(|f| Buffer::new(f.into()))
             .collect::<io::Result<Vec<_>>>()?;
         if buffers.is_empty() {
-            return error!("USAGE: cargo run --example editor FILE1 [FILE2...]");
+            return error!("USAGE: prtgn  init <filename>");
         }
         let mut stdout = io::stdout();
         enable_raw_mode()?;
@@ -335,17 +322,16 @@ impl Editor<'_> {
                         ctrl: true,
                         ..
                     } => {
-                        // Obscure the text before saving
-                        {
-                            let buffer = &mut self.buffers[self.current];
+                        let buffer = &mut self.buffers[self.current];
+                        if buffer.modified {
                             let prtgn_text = buffer.textarea.lines().join("\n");
                             let obscured = obscure(prtgn_text);
-                            // Replace buffer content with obscured text
-                            buffer.textarea = TextArea::default();
-                            buffer.textarea.insert_str(&obscured);
+                            fs::write(&buffer.path, obscured)?;
+                            buffer.modified = false;
+                            self.message = Some("Saved!".into());
+                        } else {
+                            self.message = Some("No changes to save".into());
                         }
-                        self.buffers[self.current].save()?;
-                        self.message = Some("Saved!".into());
                     }
                     // Input {
                     //     key: Key::Char('g'),

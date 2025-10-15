@@ -2,7 +2,6 @@ use clap::{Parser, Subcommand};
 
 mod prtgn_init;
 
-
 #[derive(Parser)]
 #[command(author, version, about = "
     A protogen inspired file extension written in Rust.
@@ -21,10 +20,11 @@ struct Cli {
 
 #[derive(Subcommand)]
 enum Commands {
-    #[command(about = "Create or edit a .prtgn file")]
+    #[command(about = "Create a new .prtgn file")]
     Init {
         filename: String,
     },
+
 
 }
 
@@ -34,10 +34,11 @@ pub fn command() {
     match &args.command {
         Some(Commands::Init { filename }) => {
             println!("Create: {:?}", filename);
-            prtgn_init::new_file(filename.to_string());
+            prtgn_init::init(filename.to_string());
         }
-        // Some(Commands::Open { open_filename }) => {
-        //     println!("Open: {}", open_filename);
+        // Some(Commands::Open { filename }) => {
+        //     println!("Open: {}", filename);
+        //     prtgn_open::open_file(filename.to_string());
         //     //prtgn_open::open_file(open_filename);
         // }
         None => {
