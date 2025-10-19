@@ -7,22 +7,6 @@
 #define MyAppAssocExt ".prtgn"
 #define MyAppAssocKey StringChange(MyAppAssocName, " ", "") + MyAppAssocExt
 
-#define MyLicenseUrl "https://github.com/ExoticDG/.prtgn/blob/main/LICENSE"
-#define MyLicenseFile "LICENSE"
-#define MyIconUrl "https://github.com/ExoticDG/.prtgn/blob/main/prtgn_logo.ico"
-#define MyIconFile "prtgn_logo.ico"
-
-#define MyInfoUrl "https://github.com/ExoticDG/.prtgn/blob/main/README.md"
-#define MyInfoFile "README.md"
-#define MySourceUrl "https://github.com/ExoticDG/.prtgn/releases/download/v{#MyAppVersion}/prtgn.exe"
-#define MySourceFile SourcePath + "\prtgn.exe"
-
-#expr Exec('powershell -Command "Invoke-WebRequest -Uri ''" + MyLicenseUrl + "'' -OutFile ''" + MyLicenseFile + "''"')
-#expr Exec('powershell -Command "Invoke-WebRequest -Uri ''" + MyIconUrl + "'' -OutFile ''" + MyIconFile + "''"')
-#expr Exec('powershell -Command "Invoke-WebRequest -Uri ''" + MyInfoUrl + "'' -OutFile ''" + MyInfoFile + "''"')
-; #expr Exec('powershell -Command "Invoke-WebRequest -Uri ''" + MySourceUrl + "'' -OutFile ''" + MySourceFile + "''"')
-#expr Exec('powershell -Command "[System.Net.ServicePointManager]::SecurityProtocol = ''Tls12''; Invoke-WebRequest -Uri ''" + MySourceUrl + "'' -OutFile ''" + MySourceFile + "''"')
-
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
@@ -47,13 +31,13 @@ ArchitecturesInstallIn64BitMode=x64compatible
 ChangesAssociations=yes
 DefaultGroupName={#MyAppName}
 AllowNoIcons=yes
-LicenseFile={#MyLicenseFile}
-InfoBeforeFile={#MyInfoFile}
+LicenseFile=LICENSE
+InfoBeforeFile=README.md
 ; Remove the following line to run in administrative install mode (install for all users).
 PrivilegesRequired=lowest
 PrivilegesRequiredOverridesAllowed=dialog
 OutputBaseFilename=mysetup
-SetupIconFile={#MyIconFile}
+SetupIconFile=prtgn_logo.ico
 SolidCompression=yes
 WizardStyle=modern
 
@@ -61,7 +45,7 @@ WizardStyle=modern
 Name: "english"; MessagesFile: "compiler:Default.isl"
 
 [Files]
-Source: "{#MySourceFile}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "/target/release/prtgn.exe"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Registry]
