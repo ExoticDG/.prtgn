@@ -3,7 +3,7 @@
 
 the MIT License
 
-Copyright (c) 2022 rhysd
+[Copyright (c) 2022 rhysd](https://github.com/rhysd/tui-textarea/blob/main/examples/tuirs_editor.rs)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
