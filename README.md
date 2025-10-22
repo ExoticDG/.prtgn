@@ -63,8 +63,8 @@ Have a look at our wonderful command structure! Start out with 'prtgn' and then 
 - [ ] More than text in the files. I.E. Making it able to do more stuff. Maybe images or a wrapper for Rust or something.
 - [x] Automatically adding .prtgn to a filename in the init command
 - [ ] Benchmark/test sub command \\ usage stats and whatnot \\ https://github.com/sharkdp/hyperfine ?
-- [ ] **File format converter**
-- [ ] *MIDI / other musics* | Inspired by [Ivycomb](https://youtube.com/@ivycomb?si=hL9f19mSvyffFUk1) / [Ivycomb Music](https://youtube.com/@ivycombmusic?si=K92ak8535oQ7ik8r)
+- [ ] *File format converter*
+- [ ] **MIDI / other musics** | Inspired by [Ivycomb](https://youtube.com/@ivycomb?si=hL9f19mSvyffFUk1) / [Ivycomb Music](https://youtube.com/@ivycombmusic?si=K92ak8535oQ7ik8r)
 - [ ] Website
 
 ## For Thoust dev's
