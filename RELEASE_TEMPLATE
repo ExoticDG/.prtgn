@@ -1,6 +1,6 @@
-# .prtgn v<verstion>
+# .prtgn v<version>
 
-A Protogen based file extention writen in Rust.
+A Protogen based file extension written in Rust.
 
 ## Changelog
 
@@ -14,6 +14,4 @@ A Protogen based file extention writen in Rust.
 
 ### Microsoft Windows (Built for 11 but should work elsewhere)
 
-1. Download the .exe and the 'win_install.bat' file.
-2. Ensure they are in the same file path
-3. Run the 'win_installer.bat' file
+1. Download the 'prtgn.exe' file from the latest release and run it. 
