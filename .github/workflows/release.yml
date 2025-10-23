@@ -4,6 +4,18 @@ on:
   push:
     tags:
       - 'v*'
+  workflow_dispatch:
+        # Optional: Define inputs if you want to pass custom parameters
+        inputs:
+          logLevel:
+            description: 'Log level'
+            required: true
+            default: 'info'
+            type: choice
+            options:
+            - info
+            - warning
+            - debug
 
 jobs:
   windows-release:
