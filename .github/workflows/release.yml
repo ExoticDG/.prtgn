@@ -41,7 +41,7 @@ jobs:
     - name: Create Windows Installer
       run: |
         choco install innosetup
-        iscc inno.iss
+        iscc inno.iss /DMyAppVersion=${{ steps.get_version.outputs.VERSION }} /DGITHUB_ACTIONS
 
     - name: Upload Windows Artifact
       uses: actions/upload-artifact@v4
@@ -97,13 +97,13 @@ jobs:
       run: cargo install cargo-rpm
 
     - name: Build for Fedora (RPM)
-      run: cargo rpm build --release
+      run: cargo rpm build
 
     - name: Upload Fedora Artifact
       uses: actions/upload-artifact@v4
       with:
         name: prtgn-fedora-package
-        path: target/release/*.rpm # Assuming cargo-rpm outputs to target/release/*.rpm
+        path: target/release/rpmbuild/RPMs/*.rpm # Assuming cargo-rpm outputs to target/release/*.rpm
 
   create-release:
     runs-on: ubuntu-latest

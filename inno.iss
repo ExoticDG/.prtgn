@@ -1,5 +1,5 @@
 #define MyAppName "prtgn"
-#define MyAppVersion "0.2.0"
+#define MyAppVersion "{#MyAppVersion}"
 #define MyAppPublisher "ExoticDarknessGaming (Dr. Nova Shadowtail)"
 #define MyAppURL "https://github.com/ExoticDG/.prtgn"
 #define MyAppExeName "prtgn.exe"
@@ -45,7 +45,11 @@ WizardStyle=modern
 Name: "english"; MessagesFile: "compiler:Default.isl"
 
 [Files]
-Source: "/target/release/prtgn.exe"; DestDir: "{app}"; Flags: ignoreversion
+#ifdef GITHUB_ACTIONS
+Source: "target/x86_64-pc-windows-gnu/release/prtgn.exe"; DestDir: "{app}"; Flags: ignoreversion
+#else
+Source: "target/release/prtgn.exe"; DestDir: "{app}"; Flags: ignoreversion
+#endif
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Registry]
