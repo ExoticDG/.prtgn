@@ -1,5 +1,5 @@
 #define MyAppName "prtgn"
-; #define MyAppVersion "0.2.0"
+#define MyAppVersion "6.6.6"
 #define MyAppPublisher "ExoticDarknessGaming (Dr. Nova Shadowtail)"
 #define MyAppURL "https://github.com/ExoticDG/.prtgn"
 #define MyAppExeName "prtgn.exe"
@@ -62,4 +62,5 @@ Root: HKCU; Subkey: "Environment"; ValueType: expandsz; ValueName: "Path"; Value
 [Icons]
 Name: "{group}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
 Name: "{group}\{cm:UninstallProgram,{#MyAppName}}"; Filename: "{uninstallexe}"
+
 
