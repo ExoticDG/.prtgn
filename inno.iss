@@ -1,5 +1,5 @@
 #define MyAppName "prtgn"
-#define MyAppVersion "{#MyAppVersion}"
+; #define MyAppVersion "0.2.0"
 #define MyAppPublisher "ExoticDarknessGaming (Dr. Nova Shadowtail)"
 #define MyAppURL "https://github.com/ExoticDG/.prtgn"
 #define MyAppExeName "prtgn.exe"
@@ -12,7 +12,7 @@
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
 AppId={{95A5ABC3-BFE7-4BE2-B3F1-82E15897A241}
 AppName={#MyAppName}
-AppVersion={#MyAppVersion}
+AppVersion={#emit MyAppVersion}
 ;AppVerName={#MyAppName} {#MyAppVersion}
 AppPublisher={#MyAppPublisher}
 AppPublisherURL={#MyAppURL}
