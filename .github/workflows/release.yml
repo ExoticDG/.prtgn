@@ -145,4 +145,4 @@ jobs:
           prtgn-debian-package/prtgn_${{ steps.get_version.outputs.VERSION }}_amd64.deb
           prtgn-fedora-package/*.rpm
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.AUTO_RUN_SECRET }}
