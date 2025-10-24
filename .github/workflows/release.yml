@@ -103,7 +103,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: prtgn-fedora-package
-        path: target/release/rpmbuild/RPMs/*.rpm # Assuming cargo-rpm outputs to target/release/*.rpm
+        path: target/release/rpmbuild/RPMS/*/*.rpm
 
   create-release:
     runs-on: ubuntu-latest
