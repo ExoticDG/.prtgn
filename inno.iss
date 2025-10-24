@@ -36,7 +36,7 @@ InfoBeforeFile=README.md
 ; Remove the following line to run in administrative install mode (install for all users).
 PrivilegesRequired=lowest
 PrivilegesRequiredOverridesAllowed=dialog
-OutputBaseFilename=mysetup
+OutputBaseFilename=prtgn_win_x86_64_v{#emit MyAppVersion}
 SetupIconFile=prtgn_logo.ico
 SolidCompression=yes
 WizardStyle=modern
