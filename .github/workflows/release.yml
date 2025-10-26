@@ -27,7 +27,10 @@ jobs:
 
     - name: Get the version from Cargo.toml
       id: get_version
-      run: echo "VERSION=$(grep '^version' Cargo.toml | head -n 1 | cut -d '\"' -f 2)" >> $GITHUB_OUTPUT
+      shell: pwsh
+      run: |
+        $version = (Select-String -Path Cargo.toml -Pattern '^version = "(.*?)"').Matches.Groups[1].Value
+        echo "VERSION=$version" >> $env:GITHUB_OUTPUT
 
     - name: Set up Rust
       uses: dtolnay/rust-toolchain@stable
