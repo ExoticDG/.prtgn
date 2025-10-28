@@ -59,12 +59,12 @@ Have a look at our wonderful command structure! Start out with 'prtgn' and then 
 - [x] CLI command (prtgn) for doing things. Example, `prtgn new <filename>` or something like that would create a new file and open the file editing UI -- https://rust.code-maven.com/clap-subcommand \\ https://medium.com/coderhack-com/writing-a-cli-tool-in-rust-237d7e6417f6 \\ https://rust-cli.github.io/book/tutorial/index.html
 - [x] 'Security' Through Obscurity
 - [x] Fedora / Rocky / RHL Support
-- [ ] ARM support
+- [ ] **ARM support**
 - [ ] More than text in the files. I.E. Making it able to do more stuff. Maybe images or a wrapper for Rust or something.
 - [x] Automatically adding .prtgn to a filename in the init command
 - [ ] Benchmark/test sub command \\ usage stats and whatnot \\ https://github.com/sharkdp/hyperfine ?
 - [ ] *File format converter*
-- [ ] **MIDI / other musics** | Inspired by [Ivycomb](https://youtube.com/@ivycomb?si=hL9f19mSvyffFUk1) - [YTShort](https://youtube.com/shorts/dQyZ-WTuBwQ?si=PoWy2zuMMxrF3mQX) / [Ivycomb Music](https://youtube.com/@ivycombmusic?si=K92ak8535oQ7ik8r) - [YTMusic](https://music.youtube.com/watch?v=J620cBDOrj4&si=S0GaU3D3IH-71s0k)
+- [ ] ***MIDI / other musics*** | Inspired by [Ivycomb](https://youtube.com/@ivycomb?si=hL9f19mSvyffFUk1) - [YTShort](https://youtube.com/shorts/dQyZ-WTuBwQ?si=PoWy2zuMMxrF3mQX) / [Ivycomb Music](https://youtube.com/@ivycombmusic?si=K92ak8535oQ7ik8r) - [YTMusic](https://music.youtube.com/watch?v=J620cBDOrj4&si=S0GaU3D3IH-71s0k)
 - [ ] Website
 
 ## For Thoust dev's
