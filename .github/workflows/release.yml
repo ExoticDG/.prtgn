@@ -143,7 +143,7 @@ jobs:
         draft: true
         prerelease: false
         files: |
-          prtgn-windows-installer/mysetup.exe
+          prtgn-windows-installer/prtgn_win_x86_64_v${{ steps.get_version.outputs.VERSION }}.exe
           prtgn-debian-package/prtgn_${{ steps.get_version.outputs.VERSION }}_amd64.deb
           prtgn-fedora-package/**/*.rpm
       env:
