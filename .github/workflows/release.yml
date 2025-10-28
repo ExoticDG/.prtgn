@@ -44,11 +44,7 @@ jobs:
     - name: Create Windows Installer
       run: |
         choco install innosetup
-        iscc inno.iss /DMyAppVersion=${{ steps.get_version.outputs.VERSION }} /DGITHUB_ACTIONS
-
-    - name: List files in Output directory
-      run: ls -R Output
-      shell: bash
+        iscc /DMyAppVersion="${{ steps.get_version.outputs.VERSION }}" /DGITHUB_ACTIONS inno.iss
 
     - name: Upload Windows Artifact
       uses: actions/upload-artifact@v4
