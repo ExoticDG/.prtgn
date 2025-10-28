@@ -1,5 +1,5 @@
 #define MyAppName "prtgn"
-#define MyAppVersion "6.6.6"
+#define MyAppVersion GetEnv("APP_VERSION")
 #define MyAppPublisher "ExoticDarknessGaming (Dr. Nova Shadowtail)"
 #define MyAppURL "https://github.com/ExoticDG/.prtgn"
 #define MyAppExeName "prtgn.exe"
@@ -36,7 +36,7 @@ InfoBeforeFile=README.md
 ; Remove the following line to run in administrative install mode (install for all users).
 PrivilegesRequired=lowest
 PrivilegesRequiredOverridesAllowed=dialog
-OutputBaseFilename=prtgn_win_x86_64_v{#emit MyAppVersion}
+OutputBaseFilename=prtgn_win_v{#emit MyAppVersion}_x86_64
 SetupIconFile=prtgn_logo.ico
 SolidCompression=yes
 WizardStyle=modern
