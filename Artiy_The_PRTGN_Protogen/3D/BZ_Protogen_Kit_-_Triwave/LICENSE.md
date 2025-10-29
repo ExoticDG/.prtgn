@@ -1,0 +1,1 @@
+The orriginal version of this model is by [Triwave](https://triwave.carrd.co). PRTGN dose not claim the orriginal model as being made by them. PRTGN's use of the model is under the terms listed in `- READ BEFORE USING -.txt`, which is located in the base directory of `.prtgn/Artiy_The_PRTGN_Protogen/3D/BZ_Protogen_Kit_-_Triwave`
