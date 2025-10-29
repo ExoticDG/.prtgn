@@ -52,7 +52,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: prtgn-windows-installer
-        path: Output/prtgn_win_x86_64_v${{ steps.get_version.outputs.VERSION }}.exe
+        path: Output/prtgn_win_v${{ steps.get_version.outputs.VERSION }}_x86_64.exe
   debian-release:
     runs-on: ubuntu-latest
 
