@@ -145,8 +145,10 @@ jobs:
         draft: true
         prerelease: false
         files: |
-          prtgn-windows-installer/prtgn_v${{ steps.get_version.outputs.VERSION }}_x86_64.exe
-          prtgn-debian-package/prtgn_${{ steps.get_version.outputs.VERSION }}_amd64.deb
+          # prtgn-windows-installer/prtgn_v${{ steps.get_version.outputs.VERSION }}_x86_64.exe
+          # prtgn-debian-package/prtgn_${{ steps.get_version.outputs.VERSION }}_amd64.deb
+          prtgn-windows-installer/*.exe
+          prtgn-debian-package/*.deb
           prtgn-fedora-package/**/*.rpm
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
