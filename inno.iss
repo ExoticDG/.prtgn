@@ -36,7 +36,7 @@ InfoBeforeFile=README.md
 ; Remove the following line to run in administrative install mode (install for all users).
 PrivilegesRequired=lowest
 PrivilegesRequiredOverridesAllowed=dialog
-OutputBaseFilename=prtgn_win_v{#emit MyAppVersion}_x86_64
+OutputBaseFilename=prtgn_v{#emit MyAppVersion}_x86_64
 SetupIconFile=prtgn_logo.ico
 SolidCompression=yes
 WizardStyle=modern
@@ -62,6 +62,7 @@ Root: HKCU; Subkey: "Environment"; ValueType: expandsz; ValueName: "Path"; Value
 [Icons]
 Name: "{group}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
 Name: "{group}\{cm:UninstallProgram,{#MyAppName}}"; Filename: "{uninstallexe}"
+
 
 
 
