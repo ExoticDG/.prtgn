@@ -52,7 +52,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: prtgn-windows-installer
-        path: Output/prtgn_win_v${{ steps.get_version.outputs.VERSION }}_x86_64.exe
+        path: Output/prtgn_v${{ steps.get_version.outputs.VERSION }}_x86_64.exe
   debian-release:
     runs-on: ubuntu-latest
 
@@ -145,7 +145,7 @@ jobs:
         draft: true
         prerelease: false
         files: |
-          prtgn-windows-installer/prtgn_win_v${{ steps.get_version.outputs.VERSION }}_x86_64.exe
+          prtgn-windows-installer/prtgn_v${{ steps.get_version.outputs.VERSION }}_x86_64.exe
           prtgn-debian-package/prtgn_${{ steps.get_version.outputs.VERSION }}_amd64.deb
           prtgn-fedora-package/**/*.rpm
       env:
