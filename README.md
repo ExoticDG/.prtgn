@@ -69,10 +69,10 @@ Have a look at our wonderful command structure! Start out with 'prtgn' and then 
 
 ## For Thoust dev's
 
-Debian (deb) install package : [Cargo-deb](https://crates.io/crates/cargo-deb)
+**Debian (deb) install package :** [Cargo-deb](https://crates.io/crates/cargo-deb)
 
-Fedora (rpm) install package : ~~[Cargo-rmp](https://crates.io/crates/cargo-rpm)~~ ~~[Cargo-generate-rpm](https://crates.io/crates/cargo-generate-rpm)~~ | I was unable to get either of these to work.
+**Fedora (rpm) install package :** [Cargo-rmp](https://crates.io/crates/cargo-rpm)
 
-Microsoft Windows install package : [Inno Setup](https://jrsoftware.org/isinfo.php) | ~~win_install.bat~~ **NOT SAFE** | [Cargo-wix](https://crates.io/crates/cargo-wix) is hard :(
+**Microsoft Windows install package :** [Inno Setup](https://jrsoftware.org/isinfo.php)
 
 INNO Registry PATH : `Root: HKCU; Subkey: "Environment"; ValueType: expandsz; ValueName: "Path"; ValueData: "{olddata};{app}"`
