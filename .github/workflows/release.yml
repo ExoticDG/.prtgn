@@ -18,19 +18,23 @@ on:
             - debug
 
 jobs:
+  get-version:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.get_version.outputs.VERSION }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Get the version from Cargo.toml
+        id: get_version
+        run: echo "VERSION=$(grep '^version' Cargo.toml | head -n 1 | cut -d '"' -f 2)" >> $GITHUB_OUTPUT
+
   windows-release:
     runs-on: windows-latest
-
+    needs: get-version
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
-
-    - name: Get the version from Cargo.toml
-      id: get_version
-      shell: pwsh
-      run: |
-        $version = (Select-String -Path Cargo.toml -Pattern '^version = "(.*?)"').Matches.Groups[1].Value
-        echo "VERSION=$version" >> $env:GITHUB_OUTPUT
 
     - name: Set up Rust
       uses: dtolnay/rust-toolchain@stable
@@ -43,7 +47,7 @@ jobs:
 
     - name: Create Windows Installer
       env:
-        APP_VERSION: ${{ steps.get_version.outputs.VERSION }}
+        APP_VERSION: ${{ needs.get-version.outputs.version }}
       run: |
         choco install innosetup
         iscc /DGITHUB_ACTIONS inno.iss
@@ -52,17 +56,14 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: prtgn-windows-installer
-        path: Output/prtgn_v${{ steps.get_version.outputs.VERSION }}_x86_64.exe
+        path: Output/prtgn_v${{ needs.get-version.outputs.version }}_x86_64.exe
+
   debian-release:
     runs-on: ubuntu-latest
-
+    needs: get-version
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
-
-    - name: Get the version from Cargo.toml
-      id: get_version
-      run: echo "VERSION=$(grep '^version' Cargo.toml | head -n 1 | cut -d '\"' -f 2)" >> $GITHUB_OUTPUT
 
     - name: Set up Rust
       uses: dtolnay/rust-toolchain@stable
@@ -73,24 +74,20 @@ jobs:
       run: cargo install cargo-deb
 
     - name: Build for Debian
-      run: cargo deb --output target/debian/prtgn_${{ steps.get_version.outputs.VERSION }}_amd64.deb
+      run: cargo deb --output target/debian/prtgn_${{ needs.get-version.outputs.version }}_amd64.deb
 
     - name: Upload Debian Artifact
       uses: actions/upload-artifact@v4
       with:
         name: prtgn-debian-package
-        path: target/debian/prtgn_${{ steps.get_version.outputs.VERSION }}_amd64.deb
+        path: target/debian/prtgn_${{ needs.get-version.outputs.version }}_amd64.deb
 
   fedora-release:
     runs-on: ubuntu-latest
-
+    needs: get-version
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
-
-    - name: Get the version from Cargo.toml
-      id: get_version
-      run: echo "VERSION=$(grep '^version' Cargo.toml | head -n 1 | cut -d '\"' -f 2)" >> $GITHUB_OUTPUT
 
     - name: Set up Rust
       uses: dtolnay/rust-toolchain@stable
@@ -111,17 +108,12 @@ jobs:
 
   create-release:
     runs-on: ubuntu-latest
-    needs: [windows-release, debian-release, fedora-release]
+    needs: [get-version, windows-release, debian-release, fedora-release]
     permissions:
       contents: write
-
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
-
-    - name: Get the version from Cargo.toml
-      id: get_version
-      run: echo "VERSION=$(grep '^version' Cargo.toml | head -n 1 | cut -d '\"' -f 2)" >> $GITHUB_OUTPUT
 
     - name: Download Windows Installer
       uses: actions/download-artifact@v4
@@ -142,13 +134,11 @@ jobs:
       id: create_release
       uses: softprops/action-gh-release@v1
       with:
-        tag_name: v${{ steps.get_version.outputs.VERSION }}
-        name: Release v${{ steps.get_version.outputs.VERSION }}
+        tag_name: v${{ needs.get-version.outputs.version }}
+        name: Release v${{ needs.get-version.outputs.version }}
         draft: true
         prerelease: false
         files: |
-          # prtgn-windows-installer/prtgn_v${{ steps.get_version.outputs.VERSION }}_x86_64.exe
-          # prtgn-debian-package/prtgn_v${{ steps.get_version.outputs.VERSION }}_amd64.deb
           prtgn-windows-installer/*.exe
           prtgn-debian-package/*.deb
           prtgn-fedora-package/**/*.rpm
