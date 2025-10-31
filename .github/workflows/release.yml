@@ -74,13 +74,13 @@ jobs:
       run: cargo install cargo-deb
 
     - name: Build for Debian
-      run: cargo deb --output target/debian/prtgn_${{ needs.get-version.outputs.version }}_amd64.deb
+      run: cargo deb --output target/debian/prtgn_v${{ needs.get-version.outputs.version }}_amd64.deb
 
     - name: Upload Debian Artifact
       uses: actions/upload-artifact@v4
       with:
         name: prtgn-debian-package
-        path: target/debian/prtgn_${{ needs.get-version.outputs.version }}_amd64.deb
+        path: target/debian/prtgn_v${{ needs.get-version.outputs.version }}_amd64.deb
 
   fedora-release:
     runs-on: ubuntu-latest
@@ -133,12 +133,16 @@ jobs:
         name: prtgn-fedora-package
         path: prtgn-fedora-package
 
+    - name: Generate release notes
+      run: sed 's/<version>/${{ needs.get-version.outputs.version }}/g' RELEASE_TEMPLATE > release_notes.md
+
     - name: Create GitHub Release
       id: create_release
       uses: softprops/action-gh-release@v1
       with:
         tag_name: v${{ needs.get-version.outputs.version }}
-        name: v${{ needs.get-version.outputs.version }}
+        name: Release v${{ needs.get-version.outputs.version }}
+        body_path: release_notes.md
         draft: true
         prerelease: false
         files: |
