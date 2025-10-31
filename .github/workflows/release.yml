@@ -119,23 +119,26 @@ jobs:
       uses: actions/download-artifact@v4
       with:
         name: prtgn-windows-installer
+        path: prtgn-windows-installer
 
     - name: Download Debian Package
       uses: actions/download-artifact@v4
       with:
         name: prtgn-debian-package
+        path: prtgn-debian-package
 
     - name: Download Fedora Package
       uses: actions/download-artifact@v4
       with:
         name: prtgn-fedora-package
+        path: prtgn-fedora-package
 
     - name: Create GitHub Release
       id: create_release
       uses: softprops/action-gh-release@v1
       with:
         tag_name: v${{ needs.get-version.outputs.version }}
-        name: Release v${{ needs.get-version.outputs.version }}
+        name: v${{ needs.get-version.outputs.version }}
         draft: true
         prerelease: false
         files: |
