@@ -112,6 +112,8 @@ jobs:
   create-release:
     runs-on: ubuntu-latest
     needs: [windows-release, debian-release, fedora-release]
+    permissions:
+      contents: write
 
     steps:
     - name: Checkout repository
