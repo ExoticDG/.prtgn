@@ -5,7 +5,7 @@
 #define MyAppExeName "prtgn.exe"
 ; #define MyAppAssocName "Protogen File Format"
 ; #define MyAppAssocExt ".prtgn"
-#define PrtgnAssocKey StringChange(MyAppAssocName, " ", "") + MyAppAssocExt
+#define PrtgnAssocKey StringChange("Protogen File Format", " ", "") + ".prtgn"
 ; #define PrtgnMIDIAssocKey StringChange(Protogen Midi Format, " ", "") + .prtgn_midi
 
 
