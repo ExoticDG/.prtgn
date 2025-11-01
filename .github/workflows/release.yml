@@ -100,11 +100,26 @@ jobs:
     - name: Build for Fedora (RPM)
       run: cargo rpm build
 
+    - name: Rename RPM package
+      id: rename_rpm
+      run: |
+        set -e
+        rpm_path=$(find target/release/rpmbuild/RPMS -type f -name "*.rpm")
+        if [ -z "$rpm_path" ]; then
+          echo "RPM file not found!"
+          exit 1
+        fi
+        arch=$(basename $(dirname "$rpm_path"))
+        new_name="prtgn_v${{ needs.get-version.outputs.version }}_${arch}.rpm"
+        new_path="$(dirname "$rpm_path")/${new_name}"
+        mv "$rpm_path" "$new_path"
+        echo "new_path=$new_path" >> $GITHUB_OUTPUT
+
     - name: Upload Fedora Artifact
       uses: actions/upload-artifact@v4
       with:
         name: prtgn-fedora-package
-        path: target/release/rpmbuild/RPMS/*/*.rpm
+        path: ${{ steps.rename_rpm.outputs.new_path }}
 
   create-release:
     runs-on: ubuntu-latest
@@ -141,8 +156,9 @@ jobs:
       uses: softprops/action-gh-release@v1
       with:
         tag_name: v${{ needs.get-version.outputs.version }}
-        name: Release v${{ needs.get-version.outputs.version }}
+        name: v${{ needs.get-version.outputs.version }}
         body_path: release_notes.md
+        discussion_category_name: Releases
         draft: true
         prerelease: false
         files: |
