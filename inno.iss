@@ -1,5 +1,6 @@
 #define MyAppName "prtgn"
-#define MyAppVersion GetEnv("APP_VERSION")
+; #define MyAppVersion GetEnv("APP_VERSION")
+#define MyAppVersion "6.6.6"
 #define MyAppPublisher "The .prtgn Team"
 #define MyAppURL "https://github.com/ExoticDG/.prtgn"
 #define MyAppExeName "prtgn.exe"
