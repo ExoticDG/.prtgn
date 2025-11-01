@@ -52,7 +52,7 @@ jobs:
   windows-release:
     runs-on: windows-latest
     needs: get-version
-    if: !(github.event_name == 'workflow_dispatch' && github.event.inputs.exclude_windows_x86_64 == true)
+    if: github.event_name != 'workflow_dispatch' || github.event.inputs.exclude_windows_x86_64 != true
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
@@ -82,7 +82,7 @@ jobs:
   windows-release-arm:
     runs-on: windows-latest
     needs: get-version
-    if: !(github.event_name == 'workflow_dispatch' && github.event.inputs.exclude_windows_aarch64 == true)
+    if: github.event_name != 'workflow_dispatch' || github.event.inputs.exclude_windows_aarch64 != true
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
@@ -108,7 +108,7 @@ jobs:
   debian-release:
     runs-on: ubuntu-latest
     needs: get-version
-    if: !(github.event_name == 'workflow_dispatch' && github.event.inputs.exclude_debian_x86_64 == true)
+    if: github.event_name != 'workflow_dispatch' || github.event.inputs.exclude_debian_x86_64 != true
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
@@ -133,7 +133,7 @@ jobs:
   debian-release-arm:
     runs-on: ubuntu-latest
     needs: get-version
-    if: !(github.event_name == 'workflow_dispatch' && github.event.inputs.exclude_debian_aarch64 == true)
+    if: github.event_name != 'workflow_dispatch' || github.event.inputs.exclude_debian_aarch64 != true
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
@@ -164,7 +164,7 @@ jobs:
   fedora-release:
     runs-on: ubuntu-latest
     needs: get-version
-    if: !(github.event_name == 'workflow_dispatch' && github.event.inputs.exclude_fedora_x86_64 == true)
+    if: github.event_name != 'workflow_dispatch' || github.event.inputs.exclude_fedora_x86_64 != true
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
@@ -204,7 +204,7 @@ jobs:
   fedora-release-arm:
     runs-on: ubuntu-latest
     needs: get-version
-    if: !(github.event_name == 'workflow_dispatch' && github.event.inputs.exclude_fedora_aarch64 == true)
+    if: github.event_name != 'workflow_dispatch' || github.event.inputs.exclude_fedora_aarch64 != true
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
