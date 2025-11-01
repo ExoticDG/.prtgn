@@ -67,7 +67,7 @@ If you cant art, you can still help! Shareing arround helps more than you might 
 - [x] CLI command (prtgn) for doing things. Example, `prtgn new <filename>` or something like that would create a new file and open the file editing UI -- https://rust.code-maven.com/clap-subcommand \\ https://medium.com/coderhack-com/writing-a-cli-tool-in-rust-237d7e6417f6 \\ https://rust-cli.github.io/book/tutorial/index.html
 - [x] 'Security' Through Obscurity
 - [x] Fedora / Rocky / RHL Support
-- [ ] **ARM support**
+- [x] ARM support
 - [ ] More than text in the files. I.E. Making it able to do more stuff. Maybe images or a wrapper for Rust or something.
 - [x] Automatically adding .prtgn to a filename in the init command
 - [ ] Benchmark/test sub command \\ usage stats and whatnot \\ https://github.com/sharkdp/hyperfine ?
