@@ -24,7 +24,7 @@ A Protogen file extension written in Rust.
 
 ## What we have to offer
 
-Welcome to .prtgn! The all new CLI file format for Protogens. Powered by Rust and Ratatui!
+Welcome to .prtgn! The all new CLI file format for Protogens. Powered by Rust and [![Built With Ratatui](https://img.shields.io/badge/Built_With_Ratatui-000?logo=ratatui&logoColor=fff)](https://ratatui.rs/)!
 
 We offer 'secure' files only select programs have the ability to understand, so your RAM cash and USB serial is safe with us!
 
