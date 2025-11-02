@@ -1,6 +1,7 @@
 use clap::{Parser, Subcommand};
 
 mod prtgn_init;
+mod prtgn_wav;
 
 #[derive(Parser)]
 #[command(author, version, about = "
@@ -20,13 +21,16 @@ struct Cli {
 
 #[derive(Subcommand)]
 enum Commands {
-    #[command(about = "Create a new .prtgn file")]
+    #[command(about = "Create or Edit/View a .prtgn file and sub-files")]
     Init {
         filename: String,
         #[arg(long, action = clap::ArgAction::SetTrue)]
         wav: bool,
     },
-
+    #[command(about = "Open the PRTGN Audio Interface (PAI)")]
+    Wav {
+        filename: String,
+    },
 
 }
 
@@ -35,8 +39,13 @@ pub fn command() {
 
     match &args.command {
         Some(Commands::Init { filename, wav }) => {
-            println!("Create: {:?}", filename);
+            println!("Init: {:?}", filename);
             prtgn_init::init(filename.to_string(), *wav);
+        }
+        Some(Commands::Wav { filename }) => {
+            println!("Wav: {:?}", filename);
+            prtgn_wav::wav(filename.to_string());
+
         }
         // Some(Commands::Open { filename }) => {
         //     println!("Open: {}", filename);
@@ -44,7 +53,7 @@ pub fn command() {
         //     //prtgn_open::open_file(open_filename);
         // }
         None => {
-            println!("There was no subcommand given");
+            println!("Hey you! Ya you! Artiy ain't very happy right now. Ya' didn't give them a sub command!");
         }
     }
 }

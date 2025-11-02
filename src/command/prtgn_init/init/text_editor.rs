@@ -17,8 +17,7 @@ use std::path::PathBuf;
 use std::time::{Duration, Instant};
 use tui_textarea::{CursorMove, Input, Key, TextArea};
 
-mod obscurity;
-use obscurity::{obscure, decrypt};
+use crate::obscurity::{decrypt, obscure};
 
 macro_rules! error {
     ($fmt: expr $(, $args:tt)*) => {{

@@ -10,11 +10,11 @@ pub fn init(filename: String, wav: bool) {
     let mut filename_prt = filename;
 
     if wav == true {
-        if !filename_prt.ends_with(".wav") {
-       filename_prt.push_str(".wav");
-      }
-      wav_converter::wav_to_prtgn(filename_prt);
-
+    //     if !filename_prt.ends_with(".wav") {
+    //    filename_prt.push_str(".wav");
+    //     wav_converter::wav_to_prtgn(filename_prt);
+    //   }
+        wav_converter::wav_to_prtgn(filename_prt);
     }
     else {
         if !filename_prt.ends_with(".prtgn") {

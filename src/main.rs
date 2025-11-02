@@ -1,8 +1,5 @@
-mod command;
-use command::command;
+use prtgn::{command};
 
 fn main() {
-    command();
+    command::command();
 }
-
-
