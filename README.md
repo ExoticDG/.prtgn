@@ -68,7 +68,7 @@ If you cant art, you can still help! Shareing arround helps more than you might 
 - [x] 'Security' Through Obscurity
 - [x] Fedora / Rocky / RHL Support
 - [x] ARM support
-- [ ] More than text in the files. I.E. Making it able to do more stuff. Maybe images or a wrapper for Rust or something.
+- [ ] More than text in the files. I.E. Making it able to do more stuff. Maybe images or a wrapper for Rust or something. | [Terminal IDE in Rust - Helix](https://github.com/helix-editor/helix)
 - [x] Automatically adding .prtgn to a filename in the init command
 - [ ] Benchmark/test sub command \\ usage stats and whatnot \\ https://github.com/sharkdp/hyperfine ?
 - [ ] *File format converter*
